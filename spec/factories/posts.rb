@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :post do
-    title "MyString"
+    title "A post"
+    # image
   end
 end
