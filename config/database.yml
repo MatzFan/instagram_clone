@@ -13,6 +13,7 @@ development:
   encoding: utf8
   database: instagram_clone_development
   pool: 5
+  host: localhost
   username: root
   password:
   socket: /tmp/mysql.sock
@@ -25,12 +26,13 @@ test:
   encoding: utf8
   database: instagram_clone_test
   pool: 5
+  host: localhost
   username: root
   password:
   socket: /tmp/mysql.sock
 
 production:
-  adapter: mysql2
+  adapter: pg
   encoding: utf8
   database: instagram_clone_production
   pool: 5
