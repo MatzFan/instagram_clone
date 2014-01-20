@@ -16,6 +16,7 @@ end
 group :development do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'rails_layout' # for foundation
 end
 
 group :production do
@@ -28,6 +29,8 @@ gem "factory_girl_rails", "~> 4.0"
 gem "paperclip", "~> 3.0"
 
 gem 'foreigner'
+
+gem 'foundation-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
