@@ -25,7 +25,7 @@ end
 
 gem "factory_girl_rails", "~> 4.0"
 
-gem 'paperclip'
+gem "paperclip", "~> 3.0"
 
 gem 'foreigner'
 

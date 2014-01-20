@@ -1,2 +1,3 @@
 <h1><%= post.title %></h1>
-<%= link_to edit_post_path(post) %>
+<%= image_tag post.image.url(:medium), class: 'instagram-upload' %>
+<%= link_to edit_post_path(post), 'Edit' %>
