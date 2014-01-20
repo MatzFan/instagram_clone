@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "creating a new post" do
+describe "authenticated user creating a new post" do
   context "with a title" do
     it "should result in a new post rendered at '/posts'" do
       visit 'posts/new'
@@ -12,7 +12,7 @@ describe "creating a new post" do
     end
   end
 
-  context "with an image" do
+  context "authenticated user with an image to upload" do
     it "should result in a new image rendered at '/posts'" do
       visit 'posts/new'
       fill_in 'Title', with: 'My picture'
