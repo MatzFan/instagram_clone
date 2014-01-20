@@ -24,6 +24,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'devise'
+
 gem "factory_girl_rails", "~> 4.0"
 
 gem "paperclip", "~> 3.0"
