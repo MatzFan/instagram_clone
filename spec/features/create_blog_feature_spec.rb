@@ -1,9 +1,12 @@
 require 'spec_helper'
 
+
+
 describe "creating a new post" do
   context "with a title" do
     it "should result in a new post rendered at '/posts'" do
       visit 'posts/new'
+
       fill_in 'Title', with: 'My new post'
       click_button 'Create Post'
       expect(current_path).to eq('/posts')
