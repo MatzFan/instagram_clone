@@ -23,7 +23,7 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'factory_girl_rails'
+gem "factory_girl_rails", "~> 4.0"
 
 gem 'paperclip'
 
