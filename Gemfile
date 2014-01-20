@@ -24,6 +24,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'unicorn'
+
 gem 'devise'
 
 gem "factory_girl_rails", "~> 4.0"
