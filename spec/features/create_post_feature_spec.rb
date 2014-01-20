@@ -1,8 +1,20 @@
 require 'spec_helper'
 
 describe "authenticated user creating a new post" do
+  before do
+    # create is factory girl
+    user = create(:user)
+    # login_as is Warden method for Capy - see spec_helper
+    login_as user, scope: :user
+  end
+
+  after do
+    Warden.test_reset!
+  end
+
   context "with a title" do
     it "should result in a new post rendered at '/posts'" do
+
       visit 'posts/new'
       fill_in 'Title', with: 'My new post'
       click_button 'Create Post'
