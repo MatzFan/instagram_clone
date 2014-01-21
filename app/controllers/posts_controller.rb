@@ -18,7 +18,6 @@ class PostsController < ApplicationController
 
   def index
     # display all or just those tagged, if tag provided
-    puts params
     @posts = Post.for_tag_or_all params[:tag_id]
   end
 
