@@ -9,9 +9,7 @@ group :test do
   gem 'database_cleaner'
 end
 
-group :development, :test do
-  gem 'mysql2'
-end
+gem 'mysql2'
 
 group :development do
   gem 'rspec-rails'
@@ -20,7 +18,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
