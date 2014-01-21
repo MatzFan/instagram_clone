@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   # specify style with maximum size (does not change aspect ratio)
   belongs_to :user
-  has_many_and_belongs_to :tag
+  has_and_belongs_to_many :tags
 
   has_attached_file :image,
                     styles: { medium: "300x300>" },
@@ -18,6 +18,9 @@ class Post < ActiveRecord::Base
   end
 
   def tag_names=(tag_names)
-
+    self.tags = tag_names.split(' ').map do |tag_name|
+      Tag.find_or_create_by(name: tag_name)
+    end
   end
+
 end # of class

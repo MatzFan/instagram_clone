@@ -1,3 +1,8 @@
 class Tag < ActiveRecord::Base
-  has_many_and_belongs_to :post
-end
+  has_and_belongs_to_many :posts
+
+  def to_s
+    "##{name}"
+  end
+
+end # of class
