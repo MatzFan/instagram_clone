@@ -1,7 +1,7 @@
 <h1><%= post.title %></h1>
 <%= image_tag post.image.url(:medium), class: 'instagram-upload' %>
-<%= post.tags.each do |tag| %>
-  <%= tag %>
+<% post.tags.each do |tag| %>
+  <%= link_to tag, tag_posts_path(tag) %>
 <% end %>
 <%= link_to 'Edit', edit_post_path(post) %>
 <%= link_to 'Delete', post_path(post), method: :delete %>
