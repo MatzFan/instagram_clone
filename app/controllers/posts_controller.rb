@@ -33,6 +33,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post.destroy
+    redirect_to '/posts'
+  end
+
+  # helper
   def fetch_post
     @post = Post.find(params[:id])
   end
