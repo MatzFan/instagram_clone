@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121105318) do
+ActiveRecord::Schema.define(version: 20140121122554) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 20140121105318) do
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "posts_tags", id: false, force: true do |t|
+    t.integer "post_id", null: false
+    t.integer "tag_id",  null: false
+  end
+
+  add_index "posts_tags", ["post_id"], name: "posts_tags_post_id_fk", using: :btree
+  add_index "posts_tags", ["tag_id"], name: "posts_tags_tag_id_fk", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -46,5 +60,8 @@ ActiveRecord::Schema.define(version: 20140121105318) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "posts", "users", name: "posts_user_id_fk"
+
+  add_foreign_key "posts_tags", "posts", name: "posts_tags_post_id_fk"
+  add_foreign_key "posts_tags", "tags", name: "posts_tags_tag_id_fk"
 
 end

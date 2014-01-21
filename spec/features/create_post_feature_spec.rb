@@ -35,4 +35,16 @@ describe "authenticated user creating a new post" do
     end
   end
 
+  context "with space-separated tags" do
+    it "should result in a new post rendered at '/posts' with the tags" do
+      visit 'posts/new'
+      fill_in 'Title', with: 'My new post'
+      fill_in 'Tags', with: 'atag btag'
+      click_button 'Create Post'
+      expect(current_path).to eq('/posts')
+      expect(Post.last.tags.count).to eq(2)
+      expect(page).to have_content '#atag #btag'
+    end
+  end
+
 end # end of describe

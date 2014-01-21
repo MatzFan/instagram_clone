@@ -18,7 +18,6 @@ describe "authenticated user deleting a post" do
       click_link 'Delete'
       expect(current_path).to eq('/posts')
       expect(page).not_to have_content 'A post'
-
     end
   end
 
