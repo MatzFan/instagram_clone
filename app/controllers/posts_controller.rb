@@ -17,12 +17,9 @@ class PostsController < ApplicationController
   end
 
   def index
-    if params[:tag_id]
-      # find all posts linked to the given tag
-      @posts = Tag.find(params[:tag_id]).posts
-    else
-      @posts = Post.all
-    end
+    # display all or just those tagged, if tag provided
+    puts params
+    @posts = Post.for_tag_or_all params[:tag_id]
   end
 
   def show

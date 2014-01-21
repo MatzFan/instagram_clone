@@ -13,12 +13,22 @@ class Post < ActiveRecord::Base
                     },
                     bucket: 'instagram_clone_aws'
 
+  def self.for_tag_or_all(tag_name)
+    if tag_name
+      # find all posts linked to the given tag
+      @posts = Tag.find_by(name: tag_name).posts
+    else
+      @posts = Post.all
+    end
+  end
+
   def tag_names
     tags.map { |tag| tag.name }.join(' ')
   end
 
   def tag_names=(tag_names)
     self.tags = tag_names.split(' ').map do |tag_name|
+      # find_by to search on anything  but id
       Tag.find_or_create_by(name: tag_name)
     end
   end
