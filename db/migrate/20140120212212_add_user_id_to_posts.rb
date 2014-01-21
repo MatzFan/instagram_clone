@@ -1,5 +1,5 @@
 class AddUserIdToPosts < ActiveRecord::Migration
   def change
-    add_foreign_key(:users, :posts)
+    add_foreign_key(:posts, :users)
   end
 end
