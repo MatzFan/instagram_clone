@@ -8,8 +8,8 @@ class ChargesController < ApplicationController
   def create
     @amount = (@post.price * 100).to_i # Stripe needs pounds converted to pence
     customer = Stripe::Customer.create(
-      :email => current_user.email, # assumes purchases from authenticated user
-      :card  => params[:stripeToken]
+      email: current_user.email, # assumes purchases from authenticated user
+      card: params[:stripeToken]
     )
 
     charge = Stripe::Charge.create(
