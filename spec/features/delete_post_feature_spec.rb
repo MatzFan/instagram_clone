@@ -14,10 +14,10 @@ describe "authenticated user deleting a post" do
   context "with a title and image" do
     it "should result in the post being deleted from '/posts'" do
       visit 'posts/'
-      expect(page).to have_content 'A post'
+      expect(page).to have_content 'My new post'
       click_link 'Delete'
       expect(current_path).to eq('/posts')
-      expect(page).not_to have_content 'A post'
+      expect(page).not_to have_content 'My new post'
     end
   end
 

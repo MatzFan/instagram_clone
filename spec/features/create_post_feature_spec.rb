@@ -17,7 +17,7 @@ describe "authenticated user creating a new post" do
     it "should result in a new post rendered at '/posts'" do
       visit 'posts/new'
       fill_in 'Title', with: 'My new post'
-      fill_in 'Price', with: 1000
+      fill_in 'Price', with: 10.00
       click_button 'Create Post'
       expect(current_path).to eq('/posts')
       expect(page).to have_content 'My new post'
@@ -39,7 +39,7 @@ describe "authenticated user creating a new post" do
     it "should result in a new image rendered at '/posts'" do
       visit 'posts/new'
       fill_in 'Title', with: 'My picture'
-      fill_in 'Price', with: 1000
+      fill_in 'Price', with: 10.00
       # attach_file is a Capy method
       attach_file('Image', Rails.root.join('spec/images/me.jpg'))
       click_button 'Create Post'
@@ -52,7 +52,7 @@ describe "authenticated user creating a new post" do
     it "should result in a new post rendered at '/posts' with the tags" do
       visit 'posts/new'
       fill_in 'Title', with: 'My new post'
-      fill_in 'Price', with: 1000
+      fill_in 'Price', with: 10.00
       fill_in 'tag-input', with: 'atag, btag'
       click_button 'Create Post'
       expect(current_path).to eq('/posts')

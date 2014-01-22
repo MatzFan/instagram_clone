@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(params[:post].permit(:title))
+    @post.update(params[:post].permit(:title, :price))
     if @post.save
       redirect_to posts_path
     else
