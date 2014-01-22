@@ -3,7 +3,10 @@ InstagramClone::Application.routes.draw do
   root 'posts#index'
 
   devise_for :users
-  resources :posts
+
+  resources :posts do
+    resources :charges
+  end
 
   resources :tags do
     resources :posts

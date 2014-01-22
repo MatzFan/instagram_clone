@@ -22,6 +22,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'stripe'
+
 gem 'unicorn'
 
 gem 'devise'
