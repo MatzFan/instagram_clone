@@ -4,6 +4,10 @@ InstagramClone::Application.routes.draw do
 
   devise_for :users
 
+  resources :users do
+    resources :orders
+  end
+
   resources :posts do
     resources :charges
   end

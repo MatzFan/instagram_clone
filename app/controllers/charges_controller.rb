@@ -19,6 +19,8 @@ class ChargesController < ApplicationController
       currency: 'GBP'
     )
 
+    Order.create(customer: )
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to charges_path

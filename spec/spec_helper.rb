@@ -5,6 +5,9 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
 require 'database_cleaner'
+# for JS testing
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 
 # for devise testing
 include Warden::Test::Helpers
