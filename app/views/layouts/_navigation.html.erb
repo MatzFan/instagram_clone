@@ -5,8 +5,9 @@
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
   <div class="top-bar-section">
-    <ul>
-      <%= render 'layouts/navigation_links' %>
+    <ul class="hmenu right">
+      <%= render 'devise/menu/registration_items' %>
+      <%= render 'devise/menu/login_items' %>
     </ul>
   </div>
 </nav>
