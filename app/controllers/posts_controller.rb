@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path
     else
+      # flash[:error] = 'There was a problem'
       render 'new'
     end
   end

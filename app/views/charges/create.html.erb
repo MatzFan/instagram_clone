@@ -1,1 +1,1 @@
-<h2>Thanks, your order has been received. Your card will be charged <strong><%= @post.price %></strong>!</h2>
+<h2>Thanks, your order has been received. Your card will be charged <strong><%= number_to_currency(@post.price) %></strong>.</h2>

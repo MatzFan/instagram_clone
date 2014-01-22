@@ -1,4 +1,4 @@
-<%= form_tag new_post_charge_path(@post) do %>
+<%= form_tag post_charges_path(@post) do %>
   <article>
     <label class="amount">
       <span>Amount: <%= number_to_currency(@post.price) %></span>
@@ -8,5 +8,6 @@
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
-          data-amount='899'></script>
+          data-currency="GBP"
+          data-amount='<%= @post.price * 100 %>'></script>
 <% end %>
