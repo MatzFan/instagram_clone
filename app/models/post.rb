@@ -1,9 +1,12 @@
 class Post < ActiveRecord::Base
-  # specify style with maximum size (does not change aspect ratio)
+
+  validates_numericality_of :price, greater_than: 0, less_than: 999999
+
   belongs_to :user
   has_and_belongs_to_many :tags
 
   has_attached_file :image,
+                    # specify style with maximum size (does not change aspect ratio)
                     styles: { medium: "300x300>" },
                     storage: :s3,
                     s3_credentials: {
