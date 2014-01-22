@@ -20,6 +20,10 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
 
+  # for email_spec gem for testing email
+  config.include(EmailSpec::Helpers)
+  config.include(EmailSpec::Matchers)
+
   config.include FactoryGirl::Syntax::Methods
 
   # for database_cleaner

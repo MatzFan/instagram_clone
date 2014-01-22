@@ -7,6 +7,7 @@ gem 'rails', '4.0.2'
 
 group :test do
   gem 'database_cleaner'
+  gem 'email_spec'
 end
 
 gem 'mysql2'
