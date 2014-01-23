@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
   before_action :fetch_post, only: [:edit, :show, :update, :destroy]
 
+  after_action :send_new_post_email, only: [:create]
+
   def new
     @post = Post.new
   end
@@ -45,5 +47,11 @@ class PostsController < ApplicationController
   def fetch_post
     @post = Post.find(params[:id])
   end
+
+  private
+  def send_new_post_email
+    PostMailer.new_post.deliver!
+  end
+
 
 end # of class
