@@ -1,5 +1,7 @@
 InstagramClone::Application.routes.draw do
 
+  get "comments/new"
+  get "comments/create"
   root 'posts#index'
 
   devise_for :users

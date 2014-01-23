@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   has_and_belongs_to_many :tags
+  has_many :comments
 
   has_attached_file :image,
                     # specify style with maximum size (does not change aspect ratio)
