@@ -6,9 +6,9 @@
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-email="<%= current_user.email %>"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-email=<%= current_user.email.to_json %>
+          data-key=<%= Rails.configuration.stripe[:publishable_key].to_json %>
           data-description="A month's subscription"
           data-currency="GBP"
-          data-amount="<%= @post.price * 100 %>"></script>
+          data-amount=<%= (@post.price * 100).to_json %>></script>
 <% end %>

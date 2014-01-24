@@ -3,14 +3,15 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
   before_action :fetch_post, only: [:edit, :show, :update, :destroy]
 
-  after_action :send_new_post_email, only: [:create]
-
   def new
     @post = Post.new
   end
 
   def create
     @post = Post.new(params[:post].permit(:title, :price, :image, :tag_names))
+    current_user.posts << @post
+    # adds this post to the current user's list of posts
+    # current_user.posts << @post
     if @post.save
       redirect_to posts_path
     else
@@ -25,7 +26,6 @@ class PostsController < ApplicationController
   end
 
   def show
-
   end
 
   def update
@@ -47,11 +47,5 @@ class PostsController < ApplicationController
   def fetch_post
     @post = Post.find(params[:id])
   end
-
-  private
-  def send_new_post_email
-    PostMailer.new_post.deliver!
-  end
-
 
 end # of class

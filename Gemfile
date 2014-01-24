@@ -5,18 +5,19 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-group :test do
-  gem 'database_cleaner'
-  gem 'email_spec'
-end
-
 gem 'mysql2'
 
-group :development do
+group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'rails_layout' # for foundation
+  gem 'database_cleaner'
+  gem 'factory_girl_rails', "~> 4.0"
+  gem 'email_spec'
+  gem 'capybara-email'
+  gem 'poltergeist'
 end
+
+gem 'rails_layout' # for foundation
 
 group :production do
   gem 'rails_12factor'
@@ -27,8 +28,6 @@ gem 'stripe'
 gem 'unicorn'
 
 gem 'devise'
-
-gem "factory_girl_rails", "~> 4.0"
 
 gem "paperclip", "~> 3.0"
 

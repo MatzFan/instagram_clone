@@ -3,10 +3,8 @@ require 'spec_helper'
 describe "authenticated user creating a new post" do
 
   before do
-    # create is factory girl
     user = create(:user)
-    # login_as is Warden method for Capy - see spec_helper
-    login_as user, scope: :user
+    login_as user, scope: :user # login_as is Warden method for Capy - see spec_helper
   end
 
   after do

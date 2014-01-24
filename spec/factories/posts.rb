@@ -4,6 +4,7 @@ include ActionDispatch::TestProcess
 
 FactoryGirl.define do
   factory :post do
+    user
     title "My new post"
     price 10.00
     tag_names "" # fixture with no tags

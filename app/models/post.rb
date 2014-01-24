@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
 
+  after_create :send_new_post_email
+
   validates :price, numericality: { greater_than: 0, less_than: 999999 }
 
   belongs_to :user
@@ -7,8 +9,7 @@ class Post < ActiveRecord::Base
   has_many :comments
 
   has_attached_file :image,
-                    # specify style with maximum size (does not change aspect ratio)
-                    styles: { medium: "300x300>" },
+                    styles: { medium: "300x300>" }, # does not change aspect ratio
                     storage: :s3,
                     s3_credentials: {
                       # following need to be set locally and in Heroku with heroku config:set...
@@ -32,9 +33,13 @@ class Post < ActiveRecord::Base
 
   def tag_names=(tag_names)
     self.tags = tag_names.split(/,\s?/).map do |tag_name|
-      # find_by to search on anything  but id
       Tag.find_or_create_by(name: tag_name)
     end
   end
+
+  def send_new_post_email
+    PostMailer.new_post(self, self.user).deliver!
+  end
+
 
 end # of class

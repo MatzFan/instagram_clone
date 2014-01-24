@@ -3,12 +3,13 @@ require 'spec_helper'
 describe "authenticated user deleting a post" do
 
   before do
-    # create is factory girl
     user = create(:user)
-    # login_as is Warden method for Capy - see spec_helper
     login_as user, scope: :user
-    # need a post too - factory girl again :)
-    post = create(:post)
+    create(:post, user: user)
+  end
+
+  after do
+    Warden.test_reset!
   end
 
   context "with a title and image" do
